@@ -3,11 +3,11 @@ require 'fileutils'
 module Maven
   BUILD_CLASSPATH_REGEX = /classpath:\n(.*?)\n\[INFO\]/m
 
-  def self.maven_dir?(dir = pwd)
+  def self.maven_dir?(dir = FileUtils.pwd)
     File.exist?(File.join(dir, 'pom.xml'))
   end
 
-  def self.load_dependencies(dir = pwd)
+  def self.load_dependencies(dir = FileUtils.pwd)
     return unless maven_dir?(dir)
 
     $CLASSPATH << "#{dir}/target/classes"
