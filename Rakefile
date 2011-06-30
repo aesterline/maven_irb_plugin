@@ -16,11 +16,12 @@ Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "maven_irb_plugin"
   gem.homepage = "http://github.com/aesterline/maven_irb_plugin"
-  gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.license = "Apache 2.0"
+  gem.summary = %Q{An irb plugin that will load your maven environment into your jruby irb session.}
+  gem.description = %Q{Plugin reads the pom.xml file in your current directory and loads your project dependencies into your jruby irb session.}
   gem.email = "adam@esterlines.com"
   gem.authors = ["Adam Esterline"]
+  gem.platform = Gem::Platform::JAVA
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
@@ -30,14 +31,6 @@ Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
   test.pattern = 'test/**/test_*.rb'
   test.verbose = true
-end
-
-require 'rcov/rcovtask'
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-  test.rcov_opts << '--exclude "gems/*"'
 end
 
 task :default => :test
