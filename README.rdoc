@@ -2,6 +2,14 @@
 
 Simple irb plugin to load the current directory's dependencies into your irb session.
 
+== Usage
+
+  require 'irb_plugin'
+
+If you would like to load a maven environment from a directory that is different from pwd, use:
+
+  Maven.load_dependencies('directory_name')
+
 == Copyright
 
 Copyright (c) 2011 Adam Esterline. See LICENSE.txt for
